@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="images-slideshow">
+        <div class="imageSlides fade">
+            <img src="images/images/img1.png">
+        </div>
+        <div class="imageSlides fade">
+            <img src="images/images/img2.png">
+        </div>
+        <div class="imageSlides fade">
+            <img src="images/images/img3.png">
+        </div>
+        <a class="slider-btn previous" onclick="setSlides(-1)">❮</a>
+        <a class="slider-btn next" onclick="setSlides(1)">❯</a>
+        <!-- <script src="script.js"></script> -->
+        <script>
+            var currentIndex = 1;
+            displaySlides(currentIndex);
+
+            function setSlides(num) {
+                displaySlides(currentIndex += num);
+            }
+
+            function displaySlides(num) {
+                var x;
+                var slides = document.getElementsByClassName("imageSlides");
+                if (num > slides.length) { currentIndex = 1 }
+                if (num < 1) { currentIndex = slides.length }
+                for (x = 0; x < slides.length; x++) {
+                    slides[x].style.display = "none";
+                }
+                slides[currentIndex - 1].style.display = "block";
+            }
+        </script>
+    </div>
+</body>
+
+</html>
